@@ -20,6 +20,7 @@ const codeMessage = {
 	503: '服务不可用，服务器暂时过载或维护。',
 	504: '网关超时。',
 };
+
 function checkStatus(response) {
 	if (response.status >= 200 && response.status < 300) {
 		return response;
@@ -43,10 +44,15 @@ function checkStatus(response) {
  * @return {object}           An object containing either "data" or "err"
  */
 export default function request(urlparam, options) {
+	// const url =
+	// 	process.env.NODE_ENV === 'development1' ?
+	// 	urlparam :
+	// 	`http://sys.pa.com${urlparam.replace('/api/', '/')}`;
+
 	const url =
 		process.env.NODE_ENV === 'development1'
 			? urlparam
-			: `http://sys.pa.com${urlparam.replace('/api/', '/')}`;
+			: `http://test.pa.9gms.net${urlparam.replace('/api/', '/')}`;
 
 	const defaultOptions = {
 		credentials: 'include',
@@ -56,7 +62,10 @@ export default function request(urlparam, options) {
 		mode: 'cors',
 		cache: 'force-cache',
 	};
-	const newOptions = { ...defaultOptions, ...options };
+	const newOptions = {
+		...defaultOptions,
+		...options,
+	};
 	if (
 		newOptions.method === 'POST' ||
 		newOptions.method === 'PUT' ||

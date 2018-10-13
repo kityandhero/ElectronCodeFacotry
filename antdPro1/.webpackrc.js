@@ -2,16 +2,27 @@ const path = require('path');
 
 export default {
 	entry: 'src/index.js',
-	extraBabelPlugins: [['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }]],
+	extraBabelPlugins: [
+		[
+			'import',
+			{
+				libraryName: 'antd',
+				libraryDirectory: 'es',
+				style: true,
+			},
+		],
+	],
 	env: {
 		development: {
 			extraBabelPlugins: ['dva-hmr'],
 			proxy: {
 				'/api': {
-					target: 'http://sys.pa.com/',
-					// target: 'http://test.pa.9gms.net/',
+					// target: 'http://sys.pa.com/',
+					target: 'http://test.pa.9gms.net/',
 					changeOrigin: true,
-					pathRewrite: { '^/api': '' },
+					pathRewrite: {
+						'^/api': '',
+					},
 				},
 			},
 		},
