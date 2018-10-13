@@ -1,7 +1,7 @@
-# ElectronCodeFacotry
+# CodeFacotryElectron
 
 #### 项目介绍
-ElectronCodeFacotry
+CodeFacotryElectron
 
 #### 软件架构
 软件架构说明
